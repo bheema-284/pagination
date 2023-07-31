@@ -3,14 +3,13 @@ import useSWR, { useSWRConfig } from "swr";
 import Error from "../../components/common/error";
 import Loading from "../../components/common/loading";
 import { getServiceHeader, trackerror } from "../../config/sitesettings";
-import TimeZoneList from "../../components/timezone/timezonelist";
-import AddTimeZone from "../../components/timezone/addtimezone";
+import PaginationList from "../../components/timezone/timezonelist";
 import Notificationalert from "../../components/common/notificationalert";
 import { showNotificationAlert } from "../../config/globalfunctions";
 import NewPagination from "../../components/common/pagination/newpaginationcomponent";
 import { useRouter } from "next/router";
 
-export default function TimeZone() {
+export default function Pagination() {
 
     const [screen, setScreen] = useState("timezone");
     const [pageIndex, setPageIndex] = useState(1);
@@ -128,16 +127,6 @@ export default function TimeZone() {
                             />
                         </>
                     ) : null}
-                </div>
-            ) : screen === "addTimezone" ? (
-                <div className="">
-                    <AddTimeZone
-                        editData={changeMode === "create" ? "" : editData}
-                        cancel={cancel}
-                        changeMode={changeMode}
-                        showNotification={showNotification}
-                        mutated={mutated}
-                    />
                 </div>
             ) : null
             }
